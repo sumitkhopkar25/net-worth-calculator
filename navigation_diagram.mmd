@@ -1,0 +1,11 @@
+```mermaid
+flowchart TD
+    isUAuth{User Authenticated?} 
+    isUAuth -->|No| uAuth[User Authentication] 
+    uAuth --> authSucc{Authentication Successful?}
+    authSucc -->|Yes| home[Dashboard]
+    authSucc -->|No| uAuth
+    isUAuth -->|Yes| home
+    home --> nWorthCalc[Net Worth Calculator]
+    nWorthCalc --> home
+```
