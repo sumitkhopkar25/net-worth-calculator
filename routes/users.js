@@ -13,4 +13,24 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+/* POST add a new user. */
+router.post('/', async function(req, res, next) {
+  const { firstName, lastName, email, password } = req.body;
+
+  try {
+    let user = new User({
+      firstName,
+      lastName,
+      email,
+      password
+    });
+
+    await user.save();
+    res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
 module.exports = router;
