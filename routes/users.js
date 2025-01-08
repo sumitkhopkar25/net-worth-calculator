@@ -9,8 +9,10 @@ const User = require('../models/User');
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
+  const { email, password } = req.query;
   try {
-    const users = await User.find();
+    // Find users based on email and password
+    const users = await User.find({ email, password });
     res.json(users);
   } catch (err) {
     console.error(err.message);
