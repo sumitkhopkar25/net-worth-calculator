@@ -7,19 +7,6 @@ const User = require('../models/User');
 // Secret key for JWT
 //const jwtSecret = process.env.JWT_SECRET_KEY;
 
-/* GET users listing. */
-router.get('/', async function(req, res, next) {
-  const { email, password } = req.query;
-  try {
-    // Find users based on email and password
-    const users = await User.find({ email, password });
-    res.json(users);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
-
 /* POST add a new user. */
 router.post('/', async function(req, res, next) {
   const { firstName, lastName, email, password } = req.body;
