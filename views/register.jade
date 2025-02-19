@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title Login
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1 Register
+    form(method="post", action="/register")
+        div.form-group
+            label(for="firstName") First Name:
+            input(type="text", id="firstName", name="firstName", required)
+        div.form-group
+            label(for="lastName") Last Name:
+            input(type="text", id="lastName", name="lastName", required)
+        div.form-group
+            label(for="email") Email:
+            input(type="email", id="email", name="email", required)
+        div.form-group
+            label(for="password") Password:
+            input(type="password", id="password", name="password", required)
+        button(type="submit") Register
